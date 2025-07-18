@@ -1,12 +1,13 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 WITH source AS (
-    SELECT * FROM {{ source('maven_toys_raw', 'SALES') }}
+    SELECT * FROM {{ source('project_2_raw', 'SALES') }}
 ),
 
-renamed AS (
+sales AS (
     SELECT
         SALE_ID::INTEGER AS sale_id,
+        -- Fix the date conversion (use TO_DATE instead of DATE)
         TO_DATE(DATE, 'DD-MM-YYYY') AS sale_date,
         STORE_ID::INTEGER AS store_id,
         PRODUCT_ID::INTEGER AS product_id,
@@ -19,4 +20,4 @@ renamed AS (
       AND UNITS > 0
 )
 
-SELECT * FROM renamed
+SELECT * FROM sales
