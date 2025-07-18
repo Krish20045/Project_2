@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: maven_toys_raw
+    database: PROJECT_2
+    schema: PUBLIC
+    description: "Raw Maven Toys data from Snowflake"
+    tables:
+      - name: CALENDAR
+        description: "Raw calendar/date data"
+        columns:
+          - name: DATE
+            description: "Date in DD-MM-YYYY format"
+            tests:
+              - not_null
+              - unique
+              
+      - name: PRODUCTS
+        description: "Raw product catalog data"
+        columns:
+          - name: PRODUCT_ID
+            description: "Unique product identifier"
+            tests:
+              - not_null
+              - unique
+              
+      - name: STORES
+        description: "Raw store information"
+        columns:
+          - name: STORE_ID
+            description: "Unique store identifier"
+            tests:
+              - not_null
+              - unique
+              
+      - name: SALES
+        description: "Raw sales transaction data"
+        columns:
+          - name: SALE_ID
+            description: "Unique sale identifier"
+            tests:
+              - not_null
+              - unique
+              
+      - name: INVENTORY
+        description: "Raw inventory levels"
+        
+      - name: DATA_DICTIONARY
+        description: "Data dictionary/schema info"

@@ -1,0 +1,14 @@
+maven_toys:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: PMQDMVK-ZS73965
+      user: Krish20045
+      password: Monday@22334455
+      role: ACCOUNTADMIN
+      database: PROJECT_2
+      warehouse: TRANSFORMING
+      schema: PUBLIC
+      threads: 4
+      keepalives_idle: 30
