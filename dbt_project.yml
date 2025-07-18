@@ -18,10 +18,10 @@ clean-targets:
 models:
   project_2:
     staging:
-      +materialized: view
+      +materialized: table
       +schema: public  # Use existing PUBLIC schema
     intermediate:
-      +materialized: view
+      +materialized: table
       +schema: public  # Use existing PUBLIC schema
     marts:
       +materialized: table

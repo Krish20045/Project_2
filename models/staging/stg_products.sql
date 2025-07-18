@@ -1,19 +1,19 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 WITH source AS (
-    SELECT * FROM {{ source('maven_toys_raw', 'PRODUCTS') }}
+    SELECT * FROM {{ source('project_2_raw', 'PRODUCTS') }}
 ),
 
-PRODUCTS AS (
+products AS (
     SELECT
         PRODUCT_ID::INTEGER AS product_id,
         TRIM(PRODUCT_NAME) AS product_name,
         TRIM(PRODUCT_CATEGORY) AS product_category,
-        PRODUCT_COST::DECIMAL(10,2) AS product_cost,
-        PRODUCT_PRICE::DECIMAL(10,2) AS product_price,
-        CURRENT_TIMESTAMP() AS _loaded_at
+        -- Remove dollar sign using SUBSTR (skip first character)
+        SUBSTR(PRODUCT_COST, 2) AS product_cost,
+        SUBSTR(PRODUCT_PRICE, 2) AS product_price
     FROM source
     WHERE PRODUCT_ID IS NOT NULL
 )
 
-SELECT * FROM PRODUCTS
+SELECT * FROM products
