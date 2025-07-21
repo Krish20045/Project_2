@@ -1,0 +1,15 @@
+sources:
+  - name: retail_data
+    database: PROJECT_2
+    schema: dbt_kpatel2_public
+    tables:
+      - name: products
+        description: "Raw products data"
+      - name: sales
+        description: "Raw sales data" 
+      - name: stores
+        description: "Raw stores data"
+      - name: inventory
+        description: "Raw inventory data"
+      - name: calendar
+        description: "Raw calendar data"

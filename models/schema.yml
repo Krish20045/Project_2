@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_sales
+    columns:
+      - name: sale_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        tests:
+          - not_null
+
+  - name: stg_stores
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_sales_summary
+    description: "Daily and monthly sales performance summary with key metrics"
+    columns:
+      - name: summary_level
+        description: "Level of aggregation: daily or monthly"
+      - name: total_revenue
+        description: "Total revenue for the period"
+      - name: profit_margin_pct
+        description: "Profit margin as percentage"
+
+  - name: mart_store_performance
+    description: "Store-level performance metrics and rankings"
+    
+  - name: mart_product_analysis
+    description: "Product-level sales and inventory analysis"
+    
+  - name: mart_inventory_report
+    description: "Comprehensive inventory analysis with stock levels and turnover metrics"
