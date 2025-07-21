@@ -21,11 +21,17 @@ Purpose: Clean and standardize raw data for downstream processing.
 Implementation:
 
 Created staging models for each source table:
+
 stg_calendar.sql
+
 stg_data_dictionary.sql
+
 stg_inventory.sql
+
 stg_products.sql
+
 stg_sales.sql
+
 stg_stores.sql
 
 Applied basic cleaning: column renaming, data type consistency, handling nulls/missing values, and filtering irrelevant records.
@@ -39,10 +45,15 @@ Implementation:
 Created intermediate models to join and enrich data:
 
 int_inventory_current.sql — Calculates current inventory.
+
 int_product_performance.sql — Aggregates product-level performance metrics.
+
 int_sales_with_calendar.sql — Joins sales with calendar data.
+
 int_sales_with_products.sql — Enriches sales with product details.
+
 int_sales_with_stores.sql — Adds store information to sales.
+
 int_store_performance.sql — Summarizes sales at the store level.
 
 Performed transformations such as aggregations, calculations, and business logic.
@@ -56,6 +67,7 @@ Implementation:
 Created marts models:
 
 mart_inventory_report.sql — Final inventory metrics for business consumption.
+
 mart_product_analysis.sql — Product-level analytics for reporting.
 
 Ensured these tables are optimized for dashboarding and data consumption.
